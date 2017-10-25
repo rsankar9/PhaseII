@@ -7,14 +7,12 @@ RA_n = 12
 DM_n = 3
 cluster_size = 4                                        # no. of RA units connected to 1 DM unit
 
-R_o = 0.0                                               # Expected reward is initially 0
-sw = 50.0                                               # Window size for sliding average
-
-ntrials = 1000
-
 # Learning parameters
+ntrials = 1000
 eta = 0.05                                              # Learning rate
 r_std_dev = 3.0                                         # Sigma for error - reward gaussian
+R_o = 0.0                                               # Expected reward is initially 0
+sw = 50.0                                               # Window size for sliding average
 
 rSeed = np.random.randint(0,1e7)
 np.random.seed(rSeed)
@@ -31,7 +29,6 @@ mo_ub = 6.0                                             # Desired motor output u
 neuron_noise_mean = 0.0
 neuron_noise_sd = 3.0
 neuron_beta = 0.20                                      # Threshold
-
 
 HVC_c = np.zeros(HVC_n, int)
 RA_s = np.zeros(RA_n, float)
@@ -202,4 +199,3 @@ Data = {
 resFile = "Run1.json"
 with open(resFile, 'w') as outfile:
     json.dump(Data, outfile, sort_keys=True, indent=4, separators=(',', ':\t'))
-
